@@ -51,8 +51,20 @@
                       <a class="nav-link" href="sell.html">Vender</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="cart.html">Mi carrito</a>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Usuario
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="cart.html" style="color:black;">Mi carrito</a>
+                        <a class="dropdown-item" href="login.html" onclick="sessionStorage.clear();" style="color:black;">Cerrar Sesión</a>
+                      </div>
+                    </div>
                   </li>
+                  <script>
+                    var user=sessionStorage.getItem('user');
+                    document.getElementById("user").innerHTML = user;
+                  </script>
                   </ul>
               </div>
           </div>

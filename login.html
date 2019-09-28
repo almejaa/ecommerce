@@ -14,13 +14,18 @@
       
         <div class="container">
           <label for="uname"><b>Usuario</b></label>
-          <input type="text" name="uname" required>
+          <input type="text" name="uname" id='user' required>
       
           <label for="psw"><b>Contraseña</b></label>
           <input type="password" name="psw" required>
       
-          <button type="submit">Ingresar</button>
+          <button type="submit" onclick="storeUser()">Ingresar</button>
         </div>
       </form>
+      <script>
+        function storeUser() {
+          sessionStorage.setItem('user',document.getElementById("user").value);
+        }
+      </script>
   </body>
 </html>
