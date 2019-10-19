@@ -74,10 +74,55 @@
         <h2>Mi Carrito</h2>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="list-group" id="cart-list-container">
+        <div class="px-4 px-lg-0">
+            <div class="pb-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="p-2 px-3 text-uppercase">Producto</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">Precio</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">Cantidad</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">Total</div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody id="cart-list-container">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col">
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Resumen de la Orden </div>
+                    <div class="p-4">
+                      <ul class="list-unstyled mb-4">
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Cantidad de artículos:</strong><strong id = "cantidad"></strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Subtotal:</strong><strong id = "subtotal"></strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Envío:</strong><strong id = "envio"></strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total:</strong>
+                          <h5 class="font-weight-bold" id="total"></h5>
+                        </li>
+                      </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Comprar</a>
+                    </div>
+                  </div>
+                </div>
+          
+              </div>
             </div>
+          </div>    
         </div>
+        <hr>
     </div>
     </main>
       <footer class="text-muted">
