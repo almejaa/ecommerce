@@ -103,6 +103,148 @@
                     </div>
                   </div>
                 </div>
+                <div class="col">
+                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Datos de Envío </div>
+                  <div class="p-4">
+                    <ul class="list-unstyled mb-4">
+                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Dirección:</strong><strong id = "direccion"></strong></li>
+                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Ciudad:</strong><strong id = "ciudad"></strong></li>
+                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">País:</strong><strong id = "pais"></strong></li>
+                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tipo de envío:</strong><strong id = "tipoenvio"></strong></li>
+                    </ul>
+                    <button type="button" class="btn btn-dark rounded-pill py-2 btn-block" data-toggle="modal" data-target="#envioModal">Cambiar</button>
+                    <div class="modal fade" id="envioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Datos de Envío</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Dirección:</label>
+                                <input type="text" class="form-control" id="direccion-text" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Ciudad:</label>
+                                <input type="text" class="form-control" id="ciudad-text" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">País:</label>
+                                <input type="text" class="form-control" id="pais-text" required>
+                              </div>
+                              <div class="form-group">
+                                  <label for="message-text" class="col-form-label">Tipo de Envío:</label>
+                                  <select class="form-control" id="envio-drop" required>
+                                      <option value="standard">Standard (12-15 días) - 15%</option>
+                                      <option value="express">Express (5-8 días) - 7%</option>
+                                      <option value="premium">Premium (12-15 días) - 5%</option>
+                                  </select>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" onclick="cambiarEnvio()">Ingresar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Forma de pago</div>
+                    <div class="p-4">
+                      <ul class="list-unstyled mb-4">
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Forma de Pago:</strong><strong id = "fpago"></strong></li>
+                      </ul>
+                      <button type="button" class="btn btn-dark rounded-pill py-2 btn-block" data-toggle="modal" data-target="#pagoModal">Seleccionar</button>
+                      <div class="modal fade" id="pagoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="pagoModal">Forma de Pago</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="message-text" class="col-form-label">Forma de Pago:</label>
+                                <select class="form-control" id="fpago-drop" onchange="changePago()" required>
+                                    <option value="tarjeta">Tarjeta de crédito</option>
+                                    <option value="transferencia">Transferencia bancaria</option>
+                                </select>
+                                    <div class="payment" id="payment">
+                                        <form>
+                                            <div class="form-group owner">
+                                                <label for="owner">Titular</label>
+                                                <input type="text" class="form-control" id="owner">
+                                            </div>
+                                            <div class="form-group CVV">
+                                                <label for="cvv">CVV</label>
+                                                <input type="tel" size=3 minlength=3 maxlength=3 class="form-control" id="cvv">
+                                            </div>
+                                            <div class="form-group" id="card-number-field">
+                                                <label for="cardNumber">Número de Tarjeta</label>
+                                                <input type="tel" size=16 minlength=16 maxlength=16  class="form-control" id="cardNumber">
+                                            </div>
+                                            <div class="form-group" id="expiration-date">
+                                                <label>Fecha de Expiración</label>
+                                                <select id="month">
+                                                    <option value="01">Enero</option>
+                                                    <option value="02">Febrero </option>
+                                                    <option value="03">Marzo</option>
+                                                    <option value="04">Abril</option>
+                                                    <option value="05">Mayo</option>
+                                                    <option value="06">Junio</option>
+                                                    <option value="07">Julio</option>
+                                                    <option value="08">Agosto</option>
+                                                    <option value="09">Setiembre</option>
+                                                    <option value="10">Octubre</option>
+                                                    <option value="11">Noviembre</option>
+                                                    <option value="12">Diciembre</option>
+                                                </select>
+                                                <select id="year">
+                                                    <option value="19"> 2019</option>
+                                                    <option value="20"> 2020</option>
+                                                    <option value="21"> 2021</option>
+                                                    <option value="22"> 2022</option>
+                                                    <option value="23"> 2023</option>
+                                                    <option value="24"> 2024</option>
+                                                    <option value="25"> 2025</option>
+                                                    <option value="26"> 2026</option>
+                                                    <option value="27"> 2027</option>
+                                                    <option value="28"> 2028</option>
+                                                    <option value="29"> 2029</option>
+                                                    <option value="30"> 2030</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-body" id ='cuenta'>
+                                        <div class="col-md-6 mb-3">
+                                          <label for="bankAccountNumber">Número de cuenta</label>
+                                          <input type="number" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                                          <div class="invalid-feedback">
+                                            Ingresa un número de cuenta
+                                          </div>
+                                        </div>
+                                  </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                              <button type="button" class="btn btn-primary" onclick="cambiarPago()">Ingresar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="col">
                     <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Resumen de la Orden </div>
                     <div class="p-4">
@@ -113,7 +255,7 @@
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total:</strong>
                           <h5 class="font-weight-bold" id="total"></h5>
                         </li>
-                      </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Comprar</a>
+                      </ul><button type="button" class="btn btn-dark rounded-pill py-2 btn-block" onclick="finalizarCompra()">Comprar</button>
                     </div>
                   </div>
                 </div>
@@ -131,72 +273,6 @@
             <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
         </div>
       </footer>
-      <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Forma de pago</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container">
-                  <div class="row">
-                    <div class="custom-control custom-radio">
-                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
-                      <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="shippingStreet">Número de tarjeta</label>
-                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa un número de tarjeta
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="shippingStreetNumber">Código de seg.</label>
-                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa el código de seguridad
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <label for="dueDate">Vencimiento (MM/AA)</label>
-                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
-                        <div class="invalid-feedback">
-                          Ingresa la fecha de vencimiento
-                        </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                    <div class="custom-control custom-radio">
-                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
-                      <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="bankAccountNumber">Número de cuenta</label>
-                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa un número de cuenta
-                      </div>
-                    </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
       <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
       <script src="js/vendor/jquery-3.4.1.min.js"></script>
       <script src="js/vendor/bootstrap.bundle.min.js"></script>
